@@ -209,11 +209,21 @@ async function testN8nConnection() {
   if (btn) { btn.disabled = false; btn.innerHTML = '<i class="fa-solid fa-bolt"></i> Probar Conexión'; }
 
   if (result.ok) {
-    if (statusEl) statusEl.innerHTML = `<span style="color:var(--green-success);"><i class="fa-solid fa-circle-check"></i> Conexión exitosa — HTTP ${result.status}</span>`;
+    if (statusEl) {
+      statusEl.innerHTML = '<i class="fa-solid fa-circle-check"></i> ';
+      const txt = document.createTextNode(`Conexión exitosa — HTTP ${result.status}`);
+      statusEl.appendChild(txt);
+      statusEl.style.color = 'var(--green-success)';
+    }
     showNotification('n8n Conectado', `Webhook respondió correctamente (HTTP ${result.status})`, 'info');
   } else {
     const msg = result.error || `HTTP ${result.status}`;
-    if (statusEl) statusEl.innerHTML = `<span style="color:var(--red-danger);"><i class="fa-solid fa-circle-xmark"></i> Error: ${msg}</span>`;
+    if (statusEl) {
+      statusEl.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> ';
+      const txt = document.createTextNode(`Error: ${msg}`);
+      statusEl.appendChild(txt);
+      statusEl.style.color = 'var(--red-danger)';
+    }
     showNotification('n8n Error', msg, 'error');
   }
   renderWebhookLog();

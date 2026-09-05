@@ -360,5 +360,27 @@ PENDIENTE DE REVISIÓN
 
 ---
 
+## 💡 Decisiones Técnicas
+
+- **Procesamiento de PDF en Cliente:** Para optimizar la transferencia de red, el archivo PDF se pre-valida en el navegador y se serializa a Base64 antes de ser transferido al webhook de n8n.
+- **Motor Fallback Resiliente:** Si el servicio de n8n no está disponible o el entorno de ejecución está sin conexión, TalentAI conmuta automáticamente a un motor de evaluación local para permitir demostraciones y auditorías de interfaz sin interrupciones.
+- **Persistencia Híbrida:** Utiliza Google Sheets como almacén centralizado accesible para equipos de reclutamiento y LocalStorage para mantener el estado de sesión y caché en cliente.
+
+## 🚀 Limitaciones Actuales y Mejoras Futuras
+
+- Migración planificada del almacenamiento desde Google Sheets hacia PostgreSQL con Supabase o Prisma ORM.
+- Implementación de autenticación corporativa vía OAuth 2.0 (Google Workspace / Microsoft Entra ID).
+- Integración con modelos locales (vía Ollama / Whisper) para transcripción de entrevistas en video.
+
+---
+
+## 👩‍💻 Autor
+
+- **Maria Gabriela Rincón León** — Ingeniera Mecatrónica | Desarrolladora de Software
+- **GitHub:** [@GabrielaRincon06](https://github.com/GabrielaRincon06)
+- **Email:** [mgrl27061@gmail.com](mailto:mgrl27061@gmail.com)
+
+---
+
 ### 📄 Licencia
 Este proyecto se distribuye bajo la licencia MIT.
